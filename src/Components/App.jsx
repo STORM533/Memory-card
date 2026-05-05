@@ -1,24 +1,28 @@
-import '../Styles/App.css'
-function Grid () {
-    return (
-        <div className="grid">STORM</div>
-    )
+import "../Styles/App.css";
+const names = [101, 102, 103, 104, 105, 106, 107, 108, 109];
+async function getPokemon(names) {
+  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${names}`);
+  const PokeName = await response.json();
+  console.log(PokeName);
 }
-function App ()  {
-    return(
-        <div>
-            <div className="grid-container">
-                <Grid></Grid>
-                <Grid></Grid>
-                <Grid></Grid>
-                <Grid></Grid>
-                <Grid></Grid>
-                <Grid></Grid>
-                <Grid></Grid>
-                <Grid></Grid>
-                <Grid></Grid>
-            </div>
-        </div>
-    )
+function Grid() {
+  return <div className="grid">{getPokemon()}</div>;
 }
-export {App};
+function App() {
+  return (
+    <div>
+      <div className="grid-container">
+        <Grid></Grid>
+        <Grid></Grid>
+        <Grid></Grid>
+        <Grid></Grid>
+        <Grid></Grid>
+        <Grid></Grid>
+        <Grid></Grid>
+        <Grid></Grid>
+        <Grid></Grid>
+      </div>
+    </div>
+  );
+}
+export { App };
